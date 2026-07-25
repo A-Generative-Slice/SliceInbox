@@ -1,0 +1,10 @@
+# Credentials and Configuration (Contains Passwords)
+.env
+.agents/mcp_config.json
+ceo_setup_instructions.md
+
+# Log files and scratch scripts
+*.log
+scratch/
+test_*.py
+fetch_report.py

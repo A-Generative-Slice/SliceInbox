@@ -1,0 +1,64 @@
+{
+  "mcpServers": {
+    "zoho-ifthi": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@automatearmy/email-reader-mcp"
+      ],
+      "env": {
+        "IMAP_USER": "ifthi@litelab.in",
+        "IMAP_HOST": "imappro.zoho.in",
+        "IMAP_PORT": "993",
+        "SMTP_HOST": "smtp.zoho.com",
+        "SMTP_PORT": "465",
+        "IMAP_PASS": "YOUR_ZOHO_APP_PASSWORD"
+      }
+    },
+    "zoho-commercials": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@automatearmy/email-reader-mcp"
+      ],
+      "env": {
+        "IMAP_USER": "commercials@litelab.in",
+        "IMAP_HOST": "imappro.zoho.in",
+        "IMAP_PORT": "993",
+        "SMTP_HOST": "smtp.zoho.com",
+        "SMTP_PORT": "465",
+        "IMAP_PASS": "YOUR_ZOHO_PASSWORD"
+      }
+    },
+    "zoho-enquiry": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@automatearmy/email-reader-mcp"
+      ],
+      "env": {
+        "IMAP_USER": "enquiry@litelab.in",
+        "IMAP_HOST": "imappro.zoho.in",
+        "IMAP_PORT": "993",
+        "SMTP_HOST": "smtp.zoho.com",
+        "SMTP_PORT": "465",
+        "IMAP_PASS": "YOUR_ZOHO_APP_PASSWORD"
+      }
+    },
+    "zoho-admin": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@automatearmy/email-reader-mcp"
+      ],
+      "env": {
+        "IMAP_USER": "admin@litelab.in",
+        "IMAP_HOST": "imappro.zoho.in",
+        "IMAP_PORT": "993",
+        "SMTP_HOST": "smtp.zoho.com",
+        "SMTP_PORT": "465",
+        "IMAP_PASS": "YOUR_ZOHO_APP_PASSWORD"
+      }
+    }
+  }
+}

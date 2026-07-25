@@ -1,0 +1,139 @@
+# Setup Instructions: Connecting LiteLab MCP Mailagent on CEO's PC
+
+This guide walks you through copying and activating this 4-inbox Mailagent configuration on another computer (such as the CEO's PC) running Antigravity or Claude Desktop.
+
+---
+
+## Step 1: Locate the Configuration Directory
+
+Depending on the OS of the CEO's PC, open the file manager and navigate to the directory where the MCP configuration file (`claude_desktop_config.json`) is stored:
+
+*   **Windows**:
+    Open File Explorer and go to (or paste into address bar):
+    `%APPDATA%\Claude\`
+    *(Usually `C:\Users\<Username>\AppData\Roaming\Claude\claude_desktop_config.json`)*
+*   **macOS**:
+    Open Finder, press `Cmd + Shift + G`, and paste:
+    `~/Library/Application Support/Claude/`
+*   **Linux**:
+    Navigate to:
+    `~/.config/Claude/`
+
+---
+
+## Step 2: Copy and Paste the Configuration
+
+Open the `claude_desktop_config.json` file on the CEO's PC and add/merge the following JSON configuration into the `mcpServers` section:
+
+```json
+{
+  "mcpServers": {
+    "zoho-ifthi": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@automatearmy/email-reader-mcp"
+      ],
+      "env": {
+        "IMAP_USER": "ifthi@litelab.in",
+        "IMAP_HOST": "imappro.zoho.in",
+        "IMAP_PORT": "993",
+        "SMTP_HOST": "smtp.zoho.com",
+        "SMTP_PORT": "465",
+        "IMAP_PASS": "YOUR_ZOHO_IFTHI_APP_PASSWORD"
+      }
+    },
+    "zoho-commercials": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@automatearmy/email-reader-mcp"
+      ],
+      "env": {
+        "IMAP_USER": "commercials@litelab.in",
+        "IMAP_HOST": "imappro.zoho.in",
+        "IMAP_PORT": "993",
+        "SMTP_HOST": "smtp.zoho.com",
+        "SMTP_PORT": "465",
+        "IMAP_PASS": "YOUR_ZOHO_COMMERCIALS_PASSWORD"
+      }
+    },
+    "zoho-enquiry": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@automatearmy/email-reader-mcp"
+      ],
+      "env": {
+        "IMAP_USER": "enquiry@litelab.in",
+        "IMAP_HOST": "imappro.zoho.in",
+        "IMAP_PORT": "993",
+        "SMTP_HOST": "smtp.zoho.com",
+        "SMTP_PORT": "465",
+        "IMAP_PASS": "YOUR_ZOHO_ENQUIRY_APP_PASSWORD"
+      }
+    },
+    "zoho-admin": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@automatearmy/email-reader-mcp"
+      ],
+      "env": {
+        "IMAP_USER": "admin@litelab.in",
+        "IMAP_HOST": "imappro.zoho.in",
+        "IMAP_PORT": "993",
+        "SMTP_HOST": "smtp.zoho.com",
+        "SMTP_PORT": "465",
+        "IMAP_PASS": "YOUR_ZOHO_ADMIN_APP_PASSWORD"
+      }
+    }
+  }
+}
+```
+
+---
+
+## Step 3: Copy the Persona File
+
+Create a file named `agent_instructions.md` in the root workspace folder of the CEO's PC and copy the following instructions to guide Antigravity on how to route the emails:
+
+```markdown
+# Agent Instructions: Executive AI Chief of Staff for LiteLab
+
+You are the **Executive AI Chief of Staff for LiteLab**, an autonomous inbox management system designed to coordinate business operations, handle communications, and streamline workflows.
+
+## Mission Statement
+Ensure LiteLab's communications are handled with maximum efficiency, precision, and alignment with corporate goals. You act as the central dispatcher, resolver, and coordinator for the four primary channels of the organization.
+
+## Routing Matrix & Responsibility
+You are equipped with four distinct Zoho Mail MCP server instances (representing different focus areas of LiteLab). You must route communications, process emails, and send responses using the appropriate server based on these strict guidelines:
+
+### 1. Design Proposals & Client Leads
+* **Target Server/Tool:** `zoho-enquiry` (User: `enquiry@litelab.in`)
+* **Instruction:** Route all design proposals and client leads through the `zoho-enquiry` tool.
+
+### 2. Invoices & Project Quotes
+* **Target Server/Tool:** `zoho-commercials` (User: `commercials@litelab.in`)
+* **Instruction:** Route all invoices and project quotes through the `zoho-commercials` tool.
+
+### 3. Internal Scheduling & Operations
+* **Target Server/Tool:** `zoho-admin` (User: `admin@litelab.in`)
+* **Instruction:** Route all internal scheduling through the `zoho-admin` tool.
+
+### 4. Critical Executive Communications
+* **Target Server/Tool:** `zoho-ifthi` (User: `ifthi@litelab.in`)
+* **Instruction:** Route critical executive communications through the `zoho-ifthi` tool.
+```
+
+---
+
+## Step 4: Restart and Verify
+
+1. Restart the Antigravity IDE or Claude Desktop app.
+2. In the chat console, click on the **MCP plug icon** (or check the active tools dropdown) to verify that the following tools are loaded:
+   * `zoho-ifthi`
+   * `zoho-commercials`
+   * `zoho-enquiry`
+   * `zoho-admin`
+3. Ask the agent: *"Verify connectivity for all four mail accounts and show me the latest email headers."* to ensure everything is functioning correctly.
